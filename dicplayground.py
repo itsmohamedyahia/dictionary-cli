@@ -28,3 +28,13 @@ print(os.environ["PATH"])
 ################
 # word_eng = sys.argv[1]
 # word_eng = input("what's the word?")
+
+
+with open('output.html', 'w') as file:
+    # Write text to the file
+    file.write(f"{soup_reverso}\n")
+
+
+with open('output_vocab.html', 'w') as file:
+    # Write text to the file
+    file.write(f"{soup_vocab}\n")

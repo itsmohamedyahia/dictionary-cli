@@ -39,15 +39,6 @@ response_vocab = requests.get(url_vocab, headers=headers)
 soup_reverso = BeautifulSoup(response_reverso.content, "html.parser")
 soup_vocab = BeautifulSoup(response_vocab.content, "html.parser")
 
-with open('output.html', 'w') as file:
-    # Write text to the file
-    file.write(f"{soup_reverso}\n")
-
-
-with open('output_vocab.html', 'w') as file:
-    # Write text to the file
-    file.write(f"{soup_vocab}\n")
-
 
 # Find all the divs that contain the definitions and examples
 words_ar_divs = soup_reverso.select("span.display-term")
