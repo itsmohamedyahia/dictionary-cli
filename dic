@@ -1,0 +1,3 @@
+#!/bin/bash
+python /media/itsmohamedyahia/HORIZON/playPath/python/scraping-dictionary/dic.py "$@"
+
