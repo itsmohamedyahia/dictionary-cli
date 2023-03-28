@@ -4,13 +4,26 @@ import re
 import argparse
 import textwrap
 
+####################################
+####### FUNCTION DEFINITIONS #######
+####################################
 
-parser = argparse.ArgumentParser()
-parser.add_argument("word", help="word to look for")
-args = parser.parse_args()
 
-word_eng = args.word
+def parse_word_arg():
+    ''' parse command line arguments 
 
+    Returns: 
+    string: english word passed as an argument to cli '''
+
+    parser = argparse.ArgumentParser()
+    parser.add_argument("word", help="word to look for")
+    args = parser.parse_args()
+    word_eng = args.word
+
+    return word_eng
+
+
+word_eng = parse_word_arg()
 
 url_reverso = f"https://context.reverso.net/translation/english-arabic/{word_eng}"
 url_vocab = f"https://www.vocabulary.com/dictionary/{word_eng}"
