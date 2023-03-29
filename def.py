@@ -94,14 +94,22 @@ def main():
     Print a definition of a word to the terminal
     '''
     eng_word = parse_word_arg()
-
     soup_reverso, soup_vocab = get_html(eng_word)
 
-    ar_words_list = [
-        el.text for el in soup_reverso.select("span.display-term")]
-    eng_sents_el_list = soup_reverso.select("div.ltr span.text")
-    short_def = soup_vocab.select("div.word-area p.short")[0].text
-    long_def = soup_vocab.select("div.word-area p.long")[0].text
+    ar_words_list, eng_sents_el_list = [], []
+    short_def, long_def = "", ""
+
+    try:
+        ar_words_list = [
+            el.text for el in soup_reverso.select("span.display-term")]
+        eng_sents_el_list = soup_reverso.select("div.ltr span.text")
+
+        short_def = soup_vocab.select("div.word-area p.short")[0].text
+        print(soup_vocab.select("div.word-area p.short")[0].text)
+        long_def = soup_vocab.select("div.word-area p.long")[0].text
+
+    except IndexError:
+        print("couldnt retrieve data from one of the sources")
 
     sections_list = [
         x_word_per_line(ar_words_list, 5),
