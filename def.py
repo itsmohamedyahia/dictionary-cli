@@ -75,7 +75,7 @@ def add_padding(line, space):
 def wrap_string(string):
     ''' Returns: a list of strings of max 80ch
     '''
-    return textwrap.wrap(string, width=80)
+    return textwrap.wrap(string, width=70)
 
 
 def highlight_word(word, sentence):
@@ -105,7 +105,6 @@ def main():
         eng_sents_el_list = soup_reverso.select("div.ltr span.text")
 
         short_def = soup_vocab.select("div.word-area p.short")[0].text
-        print(soup_vocab.select("div.word-area p.short")[0].text)
         long_def = soup_vocab.select("div.word-area p.long")[0].text
 
     except IndexError:
